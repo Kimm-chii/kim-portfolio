@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&amp;family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&amp;display=swap');
+    </style>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.015)" stroke-width="1"/>
+    </pattern>
+    <filter id="noise" x="0%" y="0%" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" result="noise" />
+      <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.04 0" in="noise" result="coloredNoise" />
+    </filter>
+    <linearGradient id="orbGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="rgba(200, 200, 255, 0.02)" />
+      <stop offset="100%" stop-color="rgba(100, 100, 155, 0.0)" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="40" result="blur" />
+    </filter>
+  </defs>
+
+  <!-- Base Background -->
+  <rect width="1200" height="630" fill="#060606" />
+  
+  <!-- Subtle Grid -->
+  <rect width="1200" height="630" fill="url(#grid)" />
+
+  <!-- The Interface Frame (More elegant, minimal borders) -->
+  <rect x="40" y="40" width="1120" height="550" rx="20" fill="rgba(15, 15, 15, 0.4)" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <rect x="41" y="41" width="1118" height="548" rx="19" fill="none" stroke="rgba(255,255,255,0.02)" stroke-width="1"/>
+  
+  <!-- Generative Element / Interactive Particle Visual -->
+  <g transform="translate(650, 120)">
+    <circle cx="250" cy="200" r="200" fill="url(#orbGrad)" filter="url(#glow)" />
+    <circle cx="300" cy="250" r="150" fill="rgba(255, 255, 255, 0.01)" filter="url(#glow)" />
+    
+    <!-- Abstract Particles and Math Curves -->
+    <g stroke="rgba(255,255,255,0.05)" stroke-width="1" fill="none">
+      <!-- Orbit Rings -->
+      <ellipse cx="250" cy="200" rx="180" ry="80" transform="rotate(-15 250 200)" />
+      <ellipse cx="250" cy="200" rx="240" ry="100" transform="rotate(-15 250 200)" stroke="rgba(255,255,255,0.02)"/>
+      
+      <!-- Flow Lines -->
+      <path d="M 0 100 Q 150 250 350 150 T 550 250" stroke="rgba(255,255,255,0.06)" />
+      <path d="M -50 120 Q 150 270 350 170 T 600 270" stroke="rgba(255,255,255,0.03)" />
+      <path d="M -100 140 Q 150 290 350 190 T 650 290" stroke="rgba(255,255,255,0.01)" />
+    </g>
+
+    <!-- Particle Nodes -->
+    <g fill="rgba(255,255,255,0.4)">
+      <!-- On orbit -->
+      <circle cx="106" cy="150" r="2" />
+      <circle cx="394" cy="250" r="1.5" />
+      <circle cx="250" cy="120" r="2.5" />
+      <circle cx="250" cy="280" r="1" />
+      
+      <!-- On flow line -->
+      <circle cx="150" cy="250" r="2" />
+      <circle cx="350" cy="150" r="2" />
+    </g>
+    
+    <!-- Interactive Mouse/Ripple Hint -->
+    <circle cx="180" cy="210" r="24" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1" />
+    <circle cx="180" cy="210" r="4" fill="rgba(255,255,255,0.5)" />
+  </g>
+
+  <!-- Top Navigation / Branding inside Frame -->
+  <g transform="translate(80, 80)">
+    <rect x="0" y="0" width="32" height="32" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.06)"/>
+    <text x="16" y="22" fill="rgba(255,255,255,0.9)" font-family="'Plus Jakarta Sans', sans-serif" font-size="16" font-weight="400" text-anchor="middle">キ</text>
+    
+    <text x="48" y="21" fill="#ffffff" font-family="'Plus Jakarta Sans', sans-serif" font-size="16" font-weight="500" letter-spacing="-0.2">Kim キム</text>
+    <text x="130" y="20" fill="rgba(255,255,255,0.3)" font-family="'JetBrains Mono', monospace" font-size="11" letter-spacing="1">| DIGITAL STUDIO</text>
+  </g>
+
+  <!-- Typography Content -->
+  <g transform="translate(100, 260)">
+    <text x="0" y="0" fill="rgba(255,255,255,0.4)" font-family="'JetBrains Mono', monospace" font-size="12" letter-spacing="2">PORTFOLIO V2.0</text>
+    
+    <text x="0" y="56" fill="#ffffff" font-family="'Plus Jakarta Sans', sans-serif" font-size="56" font-weight="500" letter-spacing="-1.5">Digital Corner</text>
+    <text x="0" y="120" fill="#ffffff" font-family="'Plus Jakarta Sans', sans-serif" font-size="56" font-weight="500" letter-spacing="-1.5">&amp; Creative Space</text>
+    
+    <text x="0" y="180" fill="rgba(255,255,255,0.5)" font-family="'Plus Jakarta Sans', sans-serif" font-size="20" font-weight="300" letter-spacing="-0.2">Exploring modern web experiences through thoughtful design,</text>
+    <text x="0" y="210" fill="rgba(255,255,255,0.5)" font-family="'Plus Jakarta Sans', sans-serif" font-size="20" font-weight="300" letter-spacing="-0.2">responsive interfaces, and frontend technologies.</text>
+    
+    <!-- Minimal Tags -->
+    <g transform="translate(0, 270)">
+      <circle cx="4" cy="11" r="3" fill="rgba(255,255,255,0.2)"/>
+      <text x="14" y="15" fill="rgba(255,255,255,0.6)" font-family="'JetBrains Mono', monospace" font-size="10" letter-spacing="1">FRONTEND EXPLORATION</text>
+      
+      <circle cx="174" cy="11" r="3" fill="rgba(255,255,255,0.2)"/>
+      <text x="184" y="15" fill="rgba(255,255,255,0.6)" font-family="'JetBrains Mono', monospace" font-size="10" letter-spacing="1">UI DESIGN</text>
+      
+      <circle cx="274" cy="11" r="3" fill="rgba(255,255,255,0.2)"/>
+      <text x="284" y="15" fill="rgba(255,255,255,0.6)" font-family="'JetBrains Mono', monospace" font-size="10" letter-spacing="1">CREATIVE WEB EXPERIENCES</text>
+    </g>
+  </g>
+
+  <!-- Noise Overlay -->
+  <rect width="1200" height="630" fill="transparent" style="pointer-events: none;" filter="url(#noise)"/>
+</svg>
