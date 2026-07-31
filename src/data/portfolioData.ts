@@ -1,5 +1,4 @@
 import { PortfolioData } from '../types';
-import anisonThumbnail from '../assets/images/anison_landing_page_1785431053787.jpg';
 
 export const portfolioData: PortfolioData = {
   name: "Kim",
@@ -55,21 +54,22 @@ export const portfolioData: PortfolioData = {
       featured: true,
       year: "2026",
       client: "Personal Project",
-      thumbnail: anisonThumbnail,
-      bannerImage: anisonThumbnail,
+      thumbnail: "/assets/project-1.png",
+      bannerImage: "/assets/project-1.png",
       galleryImages: [
-        anisonThumbnail
+        "/assets/project-1.png"
       ],
       summary: "A vibrant landing page and music discovery portal celebrating Japanese anime theme songs and anisong culture.",
       tags: ["Landing Page", "UI Design", "Web Design", "React"],
       metrics: [
         { label: "Performance", value: "98/100" }
       ],
-      liveUrl: "https://annchan-anisong-jp.pages.dev/",
-      githubUrl: "https://github.com/Kimm-chii",
-      challenge: "Designing an engaging, high-contrast visual identity and smooth player interface for anisong fans.",
-      solution: "Crafted a modern landing page layout with responsive card grids, typography hierarchy, and playful interactive elements.",
-      deliverables: ["Landing Page Design", "UI Design", "Web Graphics"]
+      liveUrl: "https://annchan-anisong-jp.vercel.app/",
+      githubUrl: "https://github.com/Kimm-chii/annchan-anisong-jp",
+      challenge: "Create a modern digital space for an anisong artist that feels immersive, easy to navigate, and visually aligned with Japanese music culture.",
+      solution: "Built a responsive artist landing page featuring a hero section, music-focused content sections, interactive UI elements, and a clean visual system designed for fans to explore the artist's work.",
+      deliverables: ["Landing Page Development", "UI Design", "Responsive Web Design", "Web Graphics"],
+      techStack: ["React", "TypeScript", "Tailwind CSS", "Vite"]
     },
     {
       id: "questlog-v12",
@@ -79,10 +79,10 @@ export const portfolioData: PortfolioData = {
       featured: true,
       year: "2026",
       client: "Personal Project",
-      thumbnail: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1000&auto=format&fit=crop",
-      bannerImage: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1000&auto=format&fit=crop",
+      thumbnail: "/assets/project-2.png",
+      bannerImage: "/assets/project-2.png",
       galleryImages: [
-        "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1000&auto=format&fit=crop"
+        "/assets/project-2.png"
       ],
       summary: "An immersive landing page and dashboard application for tracking daily quests, habits, and gamified productivity.",
       tags: ["Landing Page", "Web Design", "UI Design", "TypeScript"],
@@ -90,10 +90,11 @@ export const portfolioData: PortfolioData = {
         { label: "UI Polish", value: "100%" }
       ],
       liveUrl: "https://questlog-v12.vercel.app/",
-      githubUrl: "https://github.com/Kimm-chii",
-      challenge: "Combining RPG-style gamification with clean, readable modern web layout principles.",
-      solution: "Structured custom visual status badges, progress trackers, and an intuitive landing page UI hierarchy.",
-      deliverables: ["Landing Page", "UI Design", "Graphic Design for Web"]
+      githubUrl: "https://github.com/Kimm-chii/questlog-gaming-journal",
+      challenge: "Design a gaming journal that blends RPG-inspired progression with a clean, modern interface for tracking games and personal experiences.",
+      solution: "Built a responsive React application featuring custom status badges, intuitive game tracking, and a polished interface inspired by RPG progression systems.",
+      deliverables: ["Landing Page Development", "UI Design", "Responsive Design", "Custom Web Graphics"],
+      techStack: ["React", "TypeScript", "Tailwind CSS", "Vite"]
     }
   ],
   experiences: [

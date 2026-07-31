@@ -19,6 +19,7 @@ export interface Project {
   challenge: string;
   solution: string;
   deliverables: string[];
+  techStack?: string[];
 }
 
 export interface Experience {

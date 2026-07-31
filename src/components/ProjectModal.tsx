@@ -27,12 +27,14 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose, on
     };
   }, [project, onClose]);
 
-  if (!project) return null;
-
   return (
     <AnimatePresence>
-      <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 lg:p-8">
-        {/* Backdrop */}
+      {project && (
+        <motion.div 
+          key="modal-container"
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 lg:p-8"
+        >
+          {/* Backdrop */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -108,35 +110,39 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose, on
 
             {/* Scope Deliverables */}
             <div>
-              <span className="text-[10px] font-mono uppercase tracking-[0.3em] opacity-40 mb-3 block">SCOPE DELIVERABLES</span>
+              <span className="text-[10px] font-mono uppercase tracking-[0.3em] opacity-40 mb-3 block">SCOPE & DELIVERABLES</span>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                 {project.deliverables.map((item, idx) => (
                   <div key={idx} className="flex items-center gap-2.5 p-3 border border-white/10 text-xs opacity-80">
-                    <CheckCircle className="w-3.5 h-3.5 opacity-60 shrink-0" />
+                    <span className="opacity-60 shrink-0 font-mono">✓</span>
                     <span>{item}</span>
                   </div>
                 ))}
               </div>
             </div>
 
-            {/* Tech Stack Tags */}
-            <div>
-              <span className="text-[10px] font-mono uppercase tracking-[0.3em] opacity-40 mb-3 block">TECH STACK & TOOLS</span>
-              <div className="flex flex-wrap gap-2">
-                {project.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="px-3 py-1 border border-white/10 text-[10px] font-mono uppercase tracking-wider opacity-60"
-                  >
-                    {tag}
-                  </span>
-                ))}
+            {/* Tech Stack */}
+            {(project.techStack || project.tags) && (
+              <div>
+                <span className="text-[10px] font-mono uppercase tracking-[0.3em] opacity-40 mb-3 block">TECH STACK & TOOLS</span>
+                <div className="flex flex-wrap gap-2">
+                  {(project.techStack || project.tags).map((tag) => (
+                    <span
+                      key={tag}
+                      className="px-3 py-1 border border-white/10 text-[10px] font-mono uppercase tracking-wider opacity-60 flex items-center gap-1.5"
+                    >
+                      <span className="opacity-60 shrink-0">•</span> {tag}
+                    </span>
+                  ))}
+                </div>
               </div>
+            )}
+
             </div>
 
-            {/* Actions Bar */}
-            <div className="pt-4 border-t border-white/10 flex flex-wrap items-center justify-between gap-4">
-              <div className="flex items-center gap-3">
+            {/* Actions Bar (Sticky Footer) */}
+            <div className="sticky bottom-0 z-20 p-4 sm:p-6 bg-[#0A0A0A]/85 dark:bg-[#0A0A0A]/85 light:bg-[#F8F8F6]/85 backdrop-blur-xl border-t border-white/10 dark:border-white/10 light:border-black/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+              <div className="flex flex-col sm:flex-row w-full sm:w-auto items-stretch sm:items-center gap-3">
                 {project.liveUrl && (
                   <a
                     href={project.liveUrl}
@@ -146,7 +152,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose, on
                       sounds.playClick();
                       onShowToast('Opening live demo link', project.liveUrl);
                     }}
-                    className="px-6 py-3 bg-white text-black dark:bg-white dark:text-black light:bg-black light:text-white text-[10px] uppercase tracking-[0.2em] font-medium hover:opacity-85 flex items-center gap-2 transition-opacity"
+                    className="flex-1 sm:flex-none justify-center px-6 py-3.5 bg-white text-black dark:bg-white dark:text-black light:bg-black light:text-white text-[10px] uppercase tracking-[0.2em] font-medium hover:opacity-85 flex items-center gap-2 transition-opacity"
                   >
                     <span>Visit Live Project</span>
                     <ExternalLink className="w-3.5 h-3.5" />
@@ -162,7 +168,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose, on
                       sounds.playClick();
                       onShowToast('Opening source code repository', project.githubUrl);
                     }}
-                    className="px-6 py-3 border border-white/20 text-[10px] uppercase tracking-[0.2em] font-mono hover:border-white/60 flex items-center gap-2 transition-colors"
+                    className="flex-1 sm:flex-none justify-center px-6 py-3.5 border border-white/20 text-[10px] uppercase tracking-[0.2em] font-mono hover:border-white/60 flex items-center gap-2 transition-colors bg-[#0A0A0A]/50 dark:bg-[#0A0A0A]/50 light:bg-transparent"
                   >
                     <Github className="w-3.5 h-3.5" />
                     <span>Repository</span>
@@ -172,14 +178,14 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose, on
 
               <button
                 onClick={onClose}
-                className="text-[10px] font-mono uppercase tracking-widest opacity-50 hover:opacity-100 cursor-pointer"
+                className="w-full sm:w-auto py-3 sm:py-0 text-[10px] font-mono uppercase tracking-widest opacity-50 hover:opacity-100 cursor-pointer transition-opacity"
               >
                 Close Case Study
               </button>
             </div>
-          </div>
         </motion.div>
-      </div>
+        </motion.div>
+      )}
     </AnimatePresence>
   );
 };
