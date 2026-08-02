@@ -6,6 +6,7 @@ import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { IntroSplash } from './components/IntroSplash';
 import { ProjectGrid } from './components/ProjectGrid';
+import { ProjectsPage } from './components/ProjectsPage';
 import { ProjectModal } from './components/ProjectModal';
 import { AboutSection } from './components/AboutSection';
 import { PlaygroundSection } from './components/PlaygroundSection';
@@ -16,6 +17,7 @@ import { ToastContainer } from './components/Toast';
 export default function App() {
   const [toasts, setToasts] = useState<ToastMessage[]>([]);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [currentPage, setCurrentPage] = useState<'home' | 'projects'>('home');
 
   // Lock dark mode permanently
   useEffect(() => {
@@ -23,6 +25,42 @@ export default function App() {
     root.classList.add('dark');
     root.classList.remove('light');
   }, []);
+
+  // Listen to hash changes for direct routing (#all-projects)
+  useEffect(() => {
+    const checkHash = () => {
+      if (window.location.hash === '#all-projects' || window.location.hash === '#projects-archive') {
+        setCurrentPage('projects');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else if (window.location.hash === '' || window.location.hash === '#home') {
+        setCurrentPage('home');
+      }
+    };
+
+    checkHash();
+    window.addEventListener('hashchange', checkHash);
+    return () => window.removeEventListener('hashchange', checkHash);
+  }, []);
+
+  const handleViewAllProjects = () => {
+    setCurrentPage('projects');
+    window.location.hash = 'all-projects';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleBackToHome = (targetSection?: string) => {
+    setCurrentPage('home');
+    if (targetSection) {
+      window.location.hash = targetSection.replace('#', '');
+      setTimeout(() => {
+        const elem = document.querySelector(targetSection);
+        if (elem) elem.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    } else {
+      window.location.hash = '';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
 
   const showToast = (title: string, description?: string, type: 'success' | 'info' | 'error' = 'success') => {
     const id = Math.random().toString(36).substring(2, 9);
@@ -47,30 +85,48 @@ export default function App() {
       </div>
 
       {/* Floating Glassmorphic Navigation */}
-      <Navbar data={portfolioData} />
+      <Navbar
+        data={portfolioData}
+        currentPage={currentPage}
+        onNavigateHome={handleBackToHome}
+        onNavigateProjects={handleViewAllProjects}
+      />
 
       {/* Main Sections */}
       <main className="relative z-10">
-        {/* 1. Hero */}
-        <Hero data={portfolioData} />
+        {currentPage === 'home' ? (
+          <>
+            {/* 1. Hero */}
+            <Hero data={portfolioData} />
 
-        {/* 2. Projects */}
-        <ProjectGrid
-          projects={portfolioData.projects}
-          onSelectProject={(p) => setSelectedProject(p)}
-        />
+            {/* 2. Projects (Featured Preview) */}
+            <ProjectGrid
+              projects={portfolioData.projects}
+              onSelectProject={(p) => setSelectedProject(p)}
+              onViewAllProjects={handleViewAllProjects}
+              limit={3}
+            />
 
-        {/* 3. About */}
-        <AboutSection data={portfolioData} />
+            {/* 3. About */}
+            <AboutSection data={portfolioData} />
 
-        {/* 4. Interactive Canvas Generator Lab */}
-        <PlaygroundSection />
+            {/* 4. Interactive Canvas Generator Lab */}
+            <PlaygroundSection />
 
-        {/* 5. Contact */}
-        <ContactSection
-          data={portfolioData}
-          onShowToast={showToast}
-        />
+            {/* 5. Contact */}
+            <ContactSection
+              data={portfolioData}
+              onShowToast={showToast}
+            />
+          </>
+        ) : (
+          /* Dedicated Projects Archive Page */
+          <ProjectsPage
+            projects={portfolioData.projects}
+            onSelectProject={(p) => setSelectedProject(p)}
+            onBackToHome={() => handleBackToHome()}
+          />
+        )}
       </main>
 
       {/* Footer */}

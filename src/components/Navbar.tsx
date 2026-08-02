@@ -1,29 +1,64 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Menu, X, ArrowUpRight } from 'lucide-react';
+import { Menu, X, ArrowUpRight, Home } from 'lucide-react';
 import { PortfolioData } from '../types';
 
 interface NavbarProps {
   data: PortfolioData;
+  currentPage?: 'home' | 'projects';
+  onNavigateHome?: (targetSection?: string) => void;
+  onNavigateProjects?: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
   data,
+  currentPage = 'home',
+  onNavigateHome,
+  onNavigateProjects,
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navLinks = [
-    { name: 'Projects', href: '#projects' },
+    { name: 'Projects', href: '#projects', isProjects: true },
     { name: 'About', href: '#about' },
     { name: 'Lab', href: '#playground' },
     { name: 'Contact', href: '#contact' },
   ];
 
-  const handleNavClick = (href: string) => {
+  const handleNavClick = (link: { name: string; href: string; isProjects?: boolean }) => {
     setMobileMenuOpen(false);
-    const target = document.querySelector(href);
-    if (target) {
-      target.scrollIntoView({ behavior: 'smooth' });
+    if (currentPage === 'projects') {
+      if (link.isProjects) {
+        // Stay on projects page or scroll to top
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        // Go home and scroll to section
+        if (onNavigateHome) {
+          onNavigateHome(link.href);
+        }
+      }
+    } else {
+      if (link.isProjects) {
+        // Scroll to projects section on home
+        const target = document.querySelector(link.href);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      } else {
+        const target = document.querySelector(link.href);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    }
+  };
+
+  const handleBrandClick = () => {
+    setMobileMenuOpen(false);
+    if (currentPage === 'projects') {
+      if (onNavigateHome) onNavigateHome();
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   };
 
@@ -34,10 +69,7 @@ export const Navbar: React.FC<NavbarProps> = ({
         {/* Brand with Live Indicator Avatar Badge */}
         <button
           type="button"
-          onClick={(e) => {
-            e.preventDefault();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-          }}
+          onClick={handleBrandClick}
           className="group flex items-center gap-3 transition-opacity hover:opacity-85 text-left cursor-pointer"
         >
           {/* Live Indicator Avatar */}
@@ -71,23 +103,42 @@ export const Navbar: React.FC<NavbarProps> = ({
 
         {/* Center Nav Links - Desktop */}
         <nav className="hidden md:flex items-center gap-6 text-[11px] uppercase tracking-[0.2em] font-medium">
-          {navLinks.map((link) => (
+          {currentPage === 'projects' && (
             <button
-              key={link.name}
-              onClick={() => handleNavClick(link.href)}
-              className="opacity-70 hover:opacity-100 transition-opacity cursor-pointer py-1 relative group"
+              onClick={() => handleBrandClick()}
+              className="opacity-80 hover:opacity-100 transition-opacity cursor-pointer py-1 text-emerald-400 font-semibold flex items-center gap-1.5"
             >
-              {link.name}
-              <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-white dark:bg-white light:bg-black group-hover:w-full transition-all duration-300" />
+              <Home className="w-3.5 h-3.5" />
+              <span>Home</span>
             </button>
-          ))}
+          )}
+
+          {navLinks.map((link) => {
+            const isActive = currentPage === 'projects' && link.isProjects;
+            return (
+              <button
+                key={link.name}
+                onClick={() => handleNavClick(link)}
+                className={`transition-opacity cursor-pointer py-1 relative group ${
+                  isActive ? 'opacity-100 font-semibold text-white' : 'opacity-70 hover:opacity-100'
+                }`}
+              >
+                {link.name}
+                <span
+                  className={`absolute bottom-0 left-0 h-[1px] bg-white transition-all duration-300 ${
+                    isActive ? 'w-full' : 'w-0 group-hover:w-full'
+                  }`}
+                />
+              </button>
+            );
+          })}
         </nav>
 
         {/* Right Controls: Mobile Hamburger */}
         <div className="flex items-center gap-2 md:hidden">
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 rounded-full border border-white/10 text-xs text-white"
+            className="p-2 rounded-full border border-white/10 text-xs text-white cursor-pointer"
           >
             {mobileMenuOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
           </button>
@@ -104,11 +155,24 @@ export const Navbar: React.FC<NavbarProps> = ({
             className="md:hidden mt-2 p-4 rounded-3xl bg-[#0A0A0A]/90 dark:bg-[#0A0A0A]/90 light:bg-[#F8F8F6]/95 backdrop-blur-2xl border border-white/15 dark:border-white/15 light:border-black/10 shadow-2xl space-y-2"
           >
             <div className="flex flex-col gap-1">
+              {currentPage === 'projects' && (
+                <button
+                  onClick={() => handleBrandClick()}
+                  className="flex items-center justify-between text-left py-2.5 px-4 rounded-2xl bg-white/10 text-xs font-semibold uppercase tracking-wider text-emerald-400 transition-colors cursor-pointer"
+                >
+                  <span className="flex items-center gap-2">
+                    <Home className="w-3.5 h-3.5" />
+                    <span>Home Page</span>
+                  </span>
+                  <ArrowUpRight className="w-3.5 h-3.5 opacity-50" />
+                </button>
+              )}
+
               {navLinks.map((link) => (
                 <button
                   key={link.name}
-                  onClick={() => handleNavClick(link.href)}
-                  className="flex items-center justify-between text-left py-2.5 px-4 rounded-2xl hover:bg-white/5 dark:hover:bg-white/5 light:hover:bg-black/5 text-xs font-medium uppercase tracking-wider transition-colors cursor-pointer"
+                  onClick={() => handleNavClick(link)}
+                  className="flex items-center justify-between text-left py-2.5 px-4 rounded-2xl hover:bg-white/5 text-xs font-medium uppercase tracking-wider transition-colors cursor-pointer"
                 >
                   <span>{link.name}</span>
                   <ArrowUpRight className="w-3.5 h-3.5 opacity-50" />

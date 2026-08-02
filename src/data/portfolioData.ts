@@ -1,4 +1,6 @@
 import { PortfolioData } from '../types';
+import projectAetherImg from '../assets/images/project_aether_1785401917646.jpg';
+import projectPulseImg from '../assets/images/project_pulse_1785401942968.jpg';
 
 export const portfolioData: PortfolioData = {
   name: "Kim",
@@ -50,14 +52,14 @@ export const portfolioData: PortfolioData = {
       id: "annchan-anisong",
       title: "Annchan Anisong JP",
       subtitle: "Japanese Artist Digital Space",
-      category: "Artist Website",
+      category: "Creative",
       featured: true,
       year: "2026",
       client: "Personal Project",
-      thumbnail: "/assets/project-1.png",
-      bannerImage: "/assets/project-1.png",
+      thumbnail: "/assets/project-1.webp",
+      bannerImage: "/assets/project-1.webp",
       galleryImages: [
-        "/assets/project-1.png"
+        "/assets/project-1.webp"
       ],
       summary: "A vibrant landing page and music discovery portal celebrating Japanese anime theme songs and anisong culture.",
       tags: ["Landing Page", "UI Design", "Web Design", "React"],
@@ -74,17 +76,17 @@ export const portfolioData: PortfolioData = {
     {
       id: "restaurant-concept",
       title: "Restaurant Concept",
-      subtitle: "Modern Japanese Dining Experience",
-      category: "Restaurant Website",
+      subtitle: "Minimal - Japanese Dining",
+      category: "Restaurant",
       featured: true,
       year: "2026",
       client: "Personal Project",
-      thumbnail: "/assets/project-3.png",
-      bannerImage: "/assets/project-3.png",
+      thumbnail: "/assets/project-3.webp",
+      bannerImage: "/assets/project-3.webp",
       galleryImages: [
-        "/assets/project-3.png"
+        "/assets/project-3.webp"
       ],
-      summary: "A modern restaurant website concept designed for local businesses, featuring a premium menu-focused experience inspired by Japanese minimalism and Yohaku (余白).",
+      summary: "A minimal restaurant website concept designed for local businesses, featuring a premium menu-focused experience inspired by Japanese minimalism and Yohaku (余白).",
       tags: ["Restaurant Website", "Landing Page", "UI Design", "React"],
       metrics: [
         { label: "Performance", value: "98/100" }
@@ -97,17 +99,42 @@ export const portfolioData: PortfolioData = {
       techStack: ["React", "TypeScript", "Tailwind CSS", "Vite"]
     },
     {
-      id: "questlog-v12",
-      title: "QuestLog",
-      subtitle: "Gamified Gaming Archive",
-      category: "Gaming Journal",
+      id: "restaurant-concept",
+      title: "Restaurant Concept",
+      subtitle: "Modern - Japanese Dining",
+      category: "Restaurant",
       featured: true,
       year: "2026",
       client: "Personal Project",
-      thumbnail: "/assets/project-2.png",
-      bannerImage: "/assets/project-2.png",
+      thumbnail: "/assets/project-4.webp",
+      bannerImage: "/assets/project-4.webp",
       galleryImages: [
-        "/assets/project-2.png"
+        "/assets/project-4.webp"
+      ],
+      summary: "A modern Japanese restaurant website concept inspired by Yohaku (余白), focused on minimalist design, responsive experiences, and interactive frontend development.",
+      tags: ["Restaurant Website", "Landing Page", "UI Design", "React"],
+      metrics: [
+        { label: "Performance", value: "98/100" }
+      ],
+      liveUrl: "https://k-restaurant-modern.vercel.app/",
+      githubUrl: "https://github.com/Kimm-chii/k-restaurant-modern",
+      challenge: "Create a contemporary restaurant website that balances premium branding with practical usability, allowing visitors to effortlessly explore the menu, discover the restaurant's story, and access essential business information through a clean editorial experience.",
+      solution: "Designed and developed a responsive restaurant website inspired by modern editorial layouts, combining elegant typography, immersive imagery, intuitive navigation, and subtle interactions. The experience emphasizes visual storytelling while maintaining fast navigation and excellent usability across desktop and mobile devices.",
+      deliverables: ["Restaurant Website Design", "Editorial UI Design", "Responsive Web Design", "Frontend Development"],
+      techStack: ["React", "TypeScript", "Tailwind CSS", "Vite"]
+    },
+    {
+      id: "questlog-v12",
+      title: "QuestLog",
+      subtitle: "Gamified Gaming Archive",
+      category: "Creative",
+      featured: true,
+      year: "2026",
+      client: "Personal Project",
+      thumbnail: "/assets/project-2.webp",
+      bannerImage: "/assets/project-2.webp",
+      galleryImages: [
+        "/assets/project-2.webp"
       ],
       summary: "An immersive landing page and dashboard application for tracking daily quests, habits, and gamified productivity.",
       tags: ["Landing Page", "Web Design", "UI Design", "TypeScript"],
@@ -121,6 +148,29 @@ export const portfolioData: PortfolioData = {
       deliverables: ["Landing Page Development", "UI Design", "Responsive Design", "Custom Web Graphics"],
       techStack: ["React", "TypeScript", "Tailwind CSS", "Vite"]
     }
+    /*{
+      id: "project-pulse",
+      title: "Project Pulse",
+      subtitle: "Real-time Audio Visualizer & Frontend Lab",
+      category: "Web Application",
+      featured: false,
+      year: "2026",
+      client: "Personal Project",
+      thumbnail: projectPulseImg,
+      bannerImage: projectPulseImg,
+      galleryImages: [projectPulseImg],
+      summary: "A sleek frontend dashboard concept designed for audio visualization, wave monitoring, and interactive sound design controls.",
+      tags: ["Web Application", "Audio Viz", "React", "TypeScript"],
+      metrics: [
+        { label: "Usability", value: "100%" }
+      ],
+      liveUrl: "https://github.com/Kimm-chii",
+      githubUrl: "https://github.com/Kimm-chii/pulse-audio-lab",
+      challenge: "Build a responsive audio dashboard interface that renders clean charts and sound wave meters with fluid animations.",
+      solution: "Implemented an optimized dashboard UI with smooth Web Audio APIs, custom sound controls, and modular widget cards.",
+      deliverables: ["Dashboard UI", "Frontend Development", "Component Architecture"],
+      techStack: ["React", "TypeScript", "Tailwind CSS", "Motion"]
+    }*/
   ],
   experiences: [
     {
