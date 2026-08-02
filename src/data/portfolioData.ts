@@ -72,6 +72,31 @@ export const portfolioData: PortfolioData = {
       techStack: ["React", "TypeScript", "Tailwind CSS", "Vite"]
     },
     {
+      id: "restaurant-concept",
+      title: "Restaurant Concept",
+      subtitle: "Modern Japanese Dining Experience",
+      category: "Restaurant Website",
+      featured: true,
+      year: "2026",
+      client: "Personal Project",
+      thumbnail: "/assets/project-3.png",
+      bannerImage: "/assets/project-3.png",
+      galleryImages: [
+        "/assets/project-3.png"
+      ],
+      summary: "A modern restaurant website concept designed for local businesses, featuring a premium menu-focused experience inspired by Japanese minimalism and Yohaku (余白).",
+      tags: ["Restaurant Website", "Landing Page", "UI Design", "React"],
+      metrics: [
+        { label: "Performance", value: "98/100" }
+      ],
+      liveUrl: "https://k-restaurant-concept.vercel.app/",
+      githubUrl: "https://github.com/Kimm-chii/restaurant-concept",
+      challenge: "Design a modern restaurant website that prioritizes the customer experience by making the menu, contact information, and location easily accessible while maintaining a premium and minimalist aesthetic suitable for real local businesses.",
+      solution: "Built a responsive restaurant website centered around a beautifully organized full menu, clean navigation, subtle interactions, and a refined visual system inspired by Japanese minimalism. The design emphasizes readability, generous whitespace, and practical usability for both desktop and mobile users.",
+      deliverables: ["Restaurant Website Design", "Menu Experience Design", "Responsive Web Design", "UI Design"],
+      techStack: ["React", "TypeScript", "Tailwind CSS", "Vite"]
+    },
+    {
       id: "questlog-v12",
       title: "QuestLog",
       subtitle: "Gamified Gaming Archive",
@@ -89,7 +114,7 @@ export const portfolioData: PortfolioData = {
       metrics: [
         { label: "UI Polish", value: "100%" }
       ],
-      liveUrl: "https://questlog-v12.vercel.app/",
+      liveUrl: "https://k-questlog.vercel.app/",
       githubUrl: "https://github.com/Kimm-chii/questlog-gaming-journal",
       challenge: "Design a gaming journal that blends RPG-inspired progression with a clean, modern interface for tracking games and personal experiences.",
       solution: "Built a responsive React application featuring custom status badges, intuitive game tracking, and a polished interface inspired by RPG progression systems.",
