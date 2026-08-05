@@ -147,6 +147,29 @@ export const portfolioData: PortfolioData = {
       solution: "Built a responsive React application featuring custom status badges, intuitive game tracking, and a polished interface inspired by RPG progression systems.",
       deliverables: ["Landing Page Development", "UI Design", "Responsive Design", "Custom Web Graphics"],
       techStack: ["React", "TypeScript", "Tailwind CSS", "Vite"]
+    },
+    {
+      id: "sora-digital-space",
+      title: "Performing Arts",
+      subtitle: "Minimal - Performing Arts",
+      category: "Studio",
+      featured: true,
+      year: "2026",
+      client: "Personal Project",
+      thumbnail: "/assets/performing-arts.webp",
+      bannerImage: "/assets/performing-arts.webp",
+      galleryImages: "/assets/performing-arts.webp",
+      summary: "A modern web platform exploring thoughtful interface design, fluid motion, and intentional negative space.",
+      tags: ["UI Design", "Web Design", "Responsive Design", "TypeScript", "Tailwind CSS"],
+      metrics: [
+        { label: "Performance", value: "100%" }
+      ],
+      liveUrl: "https://k-performing-arts.vercel.app/",
+      githubUrl: "https://github.com/Kimm-chii/k-performing-arts",
+      challenge: "Create a modern digital experience that captures the energy of movement and artistic expression while making class information, programs, and studio details clear and accessible across all devices.",
+      solution: "Designed a refined, responsive website using React, Tailwind CSS, and Motion, combining elegant typography, immersive visuals, smooth interactions, and intuitive navigation to reflect a contemporary performing arts studio.",
+      deliverables: ["Brand Identity & UI Design", "Frontend Development", "Responsive Website Design", "Interactive User Experience"],
+      techStack: ["React", "TypeScript", "Tailwind CSS", "Motion", "Vite"]
     }
     /*{
       id: "project-pulse",
