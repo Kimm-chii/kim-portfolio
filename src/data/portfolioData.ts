@@ -169,7 +169,7 @@ export const portfolioData: PortfolioData = {
       challenge: "Create a modern digital experience that captures the energy of movement and artistic expression while making class information, programs, and studio details clear and accessible across all devices.",
       solution: "Designed a refined, responsive website using React, Tailwind CSS, and Motion, combining elegant typography, immersive visuals, smooth interactions, and intuitive navigation to reflect a contemporary performing arts studio.",
       deliverables: ["Brand Identity & UI Design", "Frontend Development", "Responsive Website Design", "Interactive User Experience"],
-      techStack: ["React", "TypeScript", "Tailwind CSS", "Motion", "Vite"]
+      techStack: ["React", "TypeScript", "Tailwind CSS", "Vite", "Motion"]
     }
     /*{
       id: "project-pulse",
