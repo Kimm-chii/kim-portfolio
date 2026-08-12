@@ -99,6 +99,39 @@ export const portfolioData: PortfolioData = {
       techStack: ["React", "TypeScript", "Tailwind CSS", "Vite"]
     },
     {
+      id: "kana-practice",
+      title: "Kana Practice",
+      subtitle: "Japanese Kana & Reading",
+      category: "Education",
+      featured: true,
+      year: "2026",
+      client: "Personal Project",
+      thumbnail: "/assets/kana-practice.webp",
+      bannerImage: "/assets/kana-practice.webp",
+      galleryImages: [
+        "/assets/kana-practice.webp"
+      ],
+      summary: "A gentle Japanese learning app for practicing Hiragana, Katakana, and N5-level reading through interactive quizzes, progress tracking, and furigana-supported passages.",
+      tags: ["Japanese Learning", "Hiragana", "Katakana", "Reading Practice", "React"],
+      metrics: [
+        { label: "Kana", value: "104+" },
+        { label: "Reading", value: "N5 Level" }
+      ],
+      liveUrl: "https://kana-practice-jp.pages.dev/",
+      githubUrl: "https://github.com/Kimm-chii/",
+      challenge: "Create a focused and approachable Japanese learning experience that makes kana practice feel less repetitive while helping learners build familiarity through quizzes, progress tracking, and simple reading exercises.",
+      solution: "Designed and developed a soft, Sakura-inspired Japanese learning interface with interactive Hiragana and Katakana quizzes, randomized practice, accuracy tracking, streaks, progress statistics, and furigana-supported N5-level reading passages. The experience is designed to stay lightweight, accessible, and comfortable across desktop and mobile devices.",
+      deliverables: [
+        "Japanese Learning App",
+        "Kana Quiz Experience",
+        "Progress Tracking",
+        "Reading Practice",
+        "Responsive Web Design",
+        "Frontend Development"
+      ],
+      techStack: ["React", "TypeScript", "Tailwind CSS", "Vite", "IndexedDB"]
+    },
+    {
       id: "restaurant-concept",
       title: "Restaurant Concept",
       subtitle: "Modern - Japanese Dining",
