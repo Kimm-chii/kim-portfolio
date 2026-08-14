@@ -74,29 +74,43 @@ export const portfolioData: PortfolioData = {
       techStack: ["React", "TypeScript", "Tailwind CSS", "Vite"]
     },
     {
-      id: "restaurant-concept",
-      title: "Restaurant Concept",
-      subtitle: "Minimal - Japanese Dining",
-      category: "Restaurant",
+      id: "my-best-anime",
+      title: "My Best Anime",
+      subtitle: "Personal - Editorial Anime Archive",
+      category: "Web App",
       featured: true,
       year: "2026",
       client: "Personal Project",
-      thumbnail: "/assets/project-3.webp",
-      bannerImage: "/assets/project-3.webp",
+      thumbnail: "/assets/my-best-anime.webp",
+      bannerImage: "/assets/my-best-anime.webp",
       galleryImages: [
-        "/assets/project-3.webp"
+        "/assets/my-best-anime.webp"
       ],
-      summary: "A minimal restaurant website concept designed for local businesses, featuring a premium menu-focused experience inspired by Japanese minimalism and Yohaku (余白).",
-      tags: ["Restaurant Website", "Landing Page", "UI Design", "React"],
+      summary: "A personal editorial anime archive that lets users curate their favorite anime, save their collection locally, and export it as a custom archive poster.",
+      tags: ["Web App", "Editorial Design", "Anime Archive", "API Integration"],
       metrics: [
         { label: "Performance", value: "98/100" }
       ],
-      liveUrl: "https://k-restaurant-concept.vercel.app/",
-      githubUrl: "https://github.com/Kimm-chii/restaurant-concept",
-      challenge: "Design a modern restaurant website that prioritizes the customer experience by making the menu, contact information, and location easily accessible while maintaining a premium and minimalist aesthetic suitable for real local businesses.",
-      solution: "Built a responsive restaurant website centered around a beautifully organized full menu, clean navigation, subtle interactions, and a refined visual system inspired by Japanese minimalism. The design emphasizes readability, generous whitespace, and practical usability for both desktop and mobile users.",
-      deliverables: ["Restaurant Website Design", "Menu Experience Design", "Responsive Web Design", "UI Design"],
-      techStack: ["React", "TypeScript", "Tailwind CSS", "Vite"]
+      liveUrl: "https://my-best-anime.pages.dev/",
+      githubUrl: "https://github.com/Kimm-chii/my-best-anime",
+      challenge: "Create a simple and visually distinctive way for anime fans to showcase their personal favorites without relying on accounts, databases, or a conventional catalog-style interface.",
+      solution: "Built an editorial-style anime archive with AniList GraphQL integration for anime search and cover artwork. Users can curate a personal collection, save their selections locally, and generate a customized aspect ratio of their choosing in high-resolution archive poster for downloading or sharing through the native mobile share experience.",
+      deliverables: [
+        "Anime Archive Web App",
+        "Editorial UI Design",
+        "AniList API Integration",
+        "Local Collection Storage",
+        "Poster Export System",
+        "Responsive Web Design"
+      ],
+      techStack: [
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "Vite",
+        "AniList GraphQL API",
+        "IndexedDB"
+      ]
     },
     {
       id: "kana-practice",
@@ -130,6 +144,54 @@ export const portfolioData: PortfolioData = {
         "Frontend Development"
       ],
       techStack: ["React", "TypeScript", "Tailwind CSS", "Vite", "IndexedDB"]
+    },
+    {
+      id: "sora-digital-space",
+      title: "Performing Arts",
+      subtitle: "Minimal - Performing Arts",
+      category: "Studio",
+      featured: true,
+      year: "2026",
+      client: "Personal Project",
+      thumbnail: "/assets/performing-arts.webp",
+      bannerImage: "/assets/performing-arts.webp",
+      galleryImages: "/assets/performing-arts.webp",
+      summary: "A modern web platform exploring thoughtful interface design, fluid motion, and intentional negative space.",
+      tags: ["UI Design", "Web Design", "Responsive Design", "TypeScript", "Tailwind CSS"],
+      metrics: [
+        { label: "Performance", value: "100%" }
+      ],
+      liveUrl: "https://k-performing-arts.vercel.app/",
+      githubUrl: "https://github.com/Kimm-chii/k-performing-arts",
+      challenge: "Create a modern digital experience that captures the energy of movement and artistic expression while making class information, programs, and studio details clear and accessible across all devices.",
+      solution: "Designed a refined, responsive website using React, Tailwind CSS, and Motion, combining elegant typography, immersive visuals, smooth interactions, and intuitive navigation to reflect a contemporary performing arts studio.",
+      deliverables: ["Brand Identity & UI Design", "Frontend Development", "Responsive Website Design", "Interactive User Experience"],
+      techStack: ["React", "TypeScript", "Tailwind CSS", "Vite", "Motion"]
+    },
+    {
+      id: "restaurant-concept",
+      title: "Restaurant Concept",
+      subtitle: "Minimal - Japanese Dining",
+      category: "Restaurant",
+      featured: true,
+      year: "2026",
+      client: "Personal Project",
+      thumbnail: "/assets/project-3.webp",
+      bannerImage: "/assets/project-3.webp",
+      galleryImages: [
+        "/assets/project-3.webp"
+      ],
+      summary: "A minimal restaurant website concept designed for local businesses, featuring a premium menu-focused experience inspired by Japanese minimalism and Yohaku (余白).",
+      tags: ["Restaurant Website", "Landing Page", "UI Design", "React"],
+      metrics: [
+        { label: "Performance", value: "98/100" }
+      ],
+      liveUrl: "https://k-restaurant-concept.vercel.app/",
+      githubUrl: "https://github.com/Kimm-chii/restaurant-concept",
+      challenge: "Design a modern restaurant website that prioritizes the customer experience by making the menu, contact information, and location easily accessible while maintaining a premium and minimalist aesthetic suitable for real local businesses.",
+      solution: "Built a responsive restaurant website centered around a beautifully organized full menu, clean navigation, subtle interactions, and a refined visual system inspired by Japanese minimalism. The design emphasizes readability, generous whitespace, and practical usability for both desktop and mobile users.",
+      deliverables: ["Restaurant Website Design", "Menu Experience Design", "Responsive Web Design", "UI Design"],
+      techStack: ["React", "TypeScript", "Tailwind CSS", "Vite"]
     },
     {
       id: "restaurant-concept",
@@ -180,29 +242,6 @@ export const portfolioData: PortfolioData = {
       solution: "Built a responsive React application featuring custom status badges, intuitive game tracking, and a polished interface inspired by RPG progression systems.",
       deliverables: ["Landing Page Development", "UI Design", "Responsive Design", "Custom Web Graphics"],
       techStack: ["React", "TypeScript", "Tailwind CSS", "Vite"]
-    },
-    {
-      id: "sora-digital-space",
-      title: "Performing Arts",
-      subtitle: "Minimal - Performing Arts",
-      category: "Studio",
-      featured: true,
-      year: "2026",
-      client: "Personal Project",
-      thumbnail: "/assets/performing-arts.webp",
-      bannerImage: "/assets/performing-arts.webp",
-      galleryImages: "/assets/performing-arts.webp",
-      summary: "A modern web platform exploring thoughtful interface design, fluid motion, and intentional negative space.",
-      tags: ["UI Design", "Web Design", "Responsive Design", "TypeScript", "Tailwind CSS"],
-      metrics: [
-        { label: "Performance", value: "100%" }
-      ],
-      liveUrl: "https://k-performing-arts.vercel.app/",
-      githubUrl: "https://github.com/Kimm-chii/k-performing-arts",
-      challenge: "Create a modern digital experience that captures the energy of movement and artistic expression while making class information, programs, and studio details clear and accessible across all devices.",
-      solution: "Designed a refined, responsive website using React, Tailwind CSS, and Motion, combining elegant typography, immersive visuals, smooth interactions, and intuitive navigation to reflect a contemporary performing arts studio.",
-      deliverables: ["Brand Identity & UI Design", "Frontend Development", "Responsive Website Design", "Interactive User Experience"],
-      techStack: ["React", "TypeScript", "Tailwind CSS", "Vite", "Motion"]
     }
     /*{
       id: "project-pulse",
