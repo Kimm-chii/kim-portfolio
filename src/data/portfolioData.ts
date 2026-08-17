@@ -116,7 +116,7 @@ export const portfolioData: PortfolioData = {
       id: "kana-practice",
       title: "Kana Practice",
       subtitle: "Japanese Kana & Reading",
-      category: "Education",
+      category: "Japanese Learning",
       featured: true,
       year: "2026",
       client: "Personal Project",
@@ -217,6 +217,46 @@ export const portfolioData: PortfolioData = {
       solution: "Designed and developed a responsive restaurant website inspired by modern editorial layouts, combining elegant typography, immersive imagery, intuitive navigation, and subtle interactions. The experience emphasizes visual storytelling while maintaining fast navigation and excellent usability across desktop and mobile devices.",
       deliverables: ["Restaurant Website Design", "Editorial UI Design", "Responsive Web Design", "Frontend Development"],
       techStack: ["React", "TypeScript", "Tailwind CSS", "Vite"]
+    },
+    {
+      id: "kotonoha",
+      title: "Kotonoha",
+      subtitle: "Japanese - Writing Practice",
+      category: "Japanese Learning",
+      featured: true,
+      year: "2026",
+      client: "Personal Project",
+      thumbnail: "/assets/kotonoha-home.webp",
+      bannerImage: "/assets/kotonoha-home.webp",
+      galleryImages: [
+        "/assets/kotonoha-home.webp"
+      ],
+      summary: "A local-first Japanese writing practice app designed as a simple personal diary for practicing vocabulary, sentence structure, and everyday Japanese writing.",
+      tags: ["Japanese Learning", "Diary App", "Local-First", "UI Design"],
+      metrics: [
+        { label: "Storage", value: "100% Local" }
+      ],
+      liveUrl: "https://kotonoha-note-jp.pages.dev/",
+      githubUrl: "https://github.com/Kimm-chii/kotonoha-jp",
+      challenge: "Create a simple and distraction-free space for practicing Japanese through regular writing while keeping personal diary entries private, accessible, and easy to back up.",
+      solution: "Designed and developed a local-first Japanese diary with autosave, customizable typography, editable entry dates, entry search, optional English translations and notes, and vocabulary marking for later review. Added Export/Import functionality so users can maintain their own backups without requiring accounts or a backend.",
+      deliverables: [
+        "Japanese Writing Practice App",
+        "Diary UI Design",
+        "Local Data Persistence",
+        "Entry Search Experience",
+        "Vocabulary Review Workflow",
+        "Export / Import System",
+        "Responsive Web Design"
+      ],
+      techStack: [
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "Vite",
+        "IndexedDB",
+        "Yomitan"
+      ]
     },
     {
       id: "questlog-v12",
