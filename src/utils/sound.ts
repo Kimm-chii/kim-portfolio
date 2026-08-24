@@ -1,32 +1,17 @@
 // Web Audio API Synthesizer for subtle tactile UI sound feedback
 
 class SoundEffects {
-  private ctx: AudioContext | null = null;
-  private enabled: boolean = false;
-
-  constructor() {
-    // Audio disabled
-  }
-
-  public setEnabled(value: boolean) {
-    this.enabled = value;
-  }
+  public setEnabled(_value: boolean) {}
 
   public isEnabled(): boolean {
     return false;
   }
 
-  public playClick() {
-    return;
-  }
+  public playClick() {}
 
-  public playHover() {
-    return;
-  }
+  public playHover() {}
 
-  public playSuccess() {
-    return;
-  }
+  public playSuccess() {}
 }
 
 export const sounds = new SoundEffects();

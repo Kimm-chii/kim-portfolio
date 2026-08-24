@@ -19,20 +19,20 @@ export const IntroSplash: React.FC = () => {
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.8, ease: "easeInOut" }}
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-[#050505] overflow-hidden"
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-[#1a1a1a] overflow-hidden"
         >
           {/* Ambient Background Glow Blooms */}
           <motion.div 
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 0.15, scale: 1 }}
             transition={{ duration: 2, ease: "easeOut" }}
-            className="absolute top-1/4 left-1/4 w-96 h-96 bg-white/20 rounded-full blur-[100px]"
+            className="absolute top-1/4 left-1/4 w-96 h-96 bg-white/10 rounded-full blur-[100px]"
           />
           <motion.div 
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 0.1, scale: 1 }}
             transition={{ duration: 2, delay: 0.2, ease: "easeOut" }}
-            className="absolute bottom-1/4 right-1/4 w-[28rem] h-[28rem] bg-white/10 rounded-full blur-[120px]"
+            className="absolute bottom-1/4 right-1/4 w-[28rem] h-[28rem] bg-white/5 rounded-full blur-[120px]"
           />
 
           {/* Floating Sparkles / Particles */}
@@ -47,7 +47,7 @@ export const IntroSplash: React.FC = () => {
                     delay: Math.random() * 0.5,
                     ease: "easeInOut" 
                   }}
-                  className="absolute w-1 h-1 bg-white rounded-full blur-[1px]"
+                  className="absolute w-1 h-1 bg-[#faf7f5] rounded-full blur-[1px]"
                   style={{
                     left: `${20 + Math.random() * 60}%`,
                     top: `${40 + Math.random() * 40}%`
@@ -64,10 +64,10 @@ export const IntroSplash: React.FC = () => {
               transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
               className="space-y-5"
             >
-              <p className="text-white/90 font-serif italic text-xl md:text-3xl tracking-wide">
+              <p className="text-[#faf7f5] font-serif italic text-xl md:text-3xl tracking-wide">
                 Nice to meet you.
               </p>
-              <p className="text-white/50 font-sans text-xs md:text-sm tracking-[0.25em]">
+              <p className="text-[#faf7f5]/60 font-sans text-xs md:text-sm tracking-[0.25em]">
                 はじめまして
               </p>
             </motion.div>

@@ -1,6 +1,4 @@
 import { PortfolioData } from '../types';
-import projectAetherImg from '../assets/images/project_aether_1785401917646.jpg';
-import projectPulseImg from '../assets/images/project_pulse_1785401942968.jpg';
 
 export const portfolioData: PortfolioData = {
   name: "Kim",
@@ -25,8 +23,8 @@ export const portfolioData: PortfolioData = {
   bio: {
     intro: "Welcome to my personal digital corner. A space where I explore modern web experiences, creative interfaces, and thoughtful digital design.",
     fullBio: [
-      "My work focuses on crafting responsive web experiences that balance design, functionality, and technology. I use tools like React, Vite, TypeScript, and Tailwind CSS while maintaining a strong focus on customization, quality, and user experience.",
-      "Rooted in minimalism and functional design (余白 - Yohaku, the beauty of open space), this site serves as my digital corner and garden—a place to showcase live web projects, interface designs, and front-end craft."
+      "My work focuses on crafting responsive web experiences that balance design, functionality, and technology, using tools like React, Vite, TypeScript, and Tailwind CSS. Four years of professional experience in Data Quality and QA shape how I work: detail-driven, process-minded, and focused on getting things right.",
+      "Rooted in minimalism and functional design (余白 - Yohaku, the beauty of open space), this site serves as my digital corner and garden, a place to showcase live web projects, interface designs, front-end craft, and the CRM systems I build to connect them to real business workflows."
     ],
     philosophies: [
       {
@@ -42,6 +40,10 @@ export const portfolioData: PortfolioData = {
         desc: "Exploring effective visual storytelling through structured layouts, engaging hero sections, and user-focused journeys."
       },
       {
+        title: "CRM & Automation",
+        desc: "Building GoHighLevel systems that connect custom websites to real business workflows, lead capture, pipelines, and automated follow-ups."
+      },
+      {
         title: "Digital Craft",
         desc: "Combining technology, typography, motion, and detail-oriented design to create polished and memorable web experiences."
       }
@@ -49,31 +51,28 @@ export const portfolioData: PortfolioData = {
   },
   projects: [
     {
-      id: "annchan-anisong",
-      title: "Annchan Anisong JP",
-      subtitle: "Japanese Artist Digital Space",
-      category: "Creative",
+      id: "sora-digital-crm",
+      title: "Sora Digital",
+      subtitle: "Digital Services Studio & CRM Automation",
+      category: "web app",
       featured: true,
       year: "2026",
-      client: "Personal Project",
-      thumbnail: "/assets/project-1.webp",
-      bannerImage: "/assets/project-1.webp",
-      galleryImages: [
-        "/assets/project-1.webp"
-      ],
-      summary: "A vibrant landing page and music discovery portal celebrating Japanese anime theme songs and anisong culture.",
-      tags: ["Landing Page", "UI Design", "Web Design", "React"],
-      metrics: [
-        { label: "Performance", value: "98/100" }
-      ],
-      liveUrl: "https://annchan-anisong-jp.vercel.app/",
-      githubUrl: "https://github.com/Kimm-chii/annchan-anisong-jp",
-      challenge: "Create a modern digital space for an anisong artist that feels immersive, easy to navigate, and visually aligned with Japanese music culture.",
-      solution: "Built a responsive artist landing page featuring a hero section, music-focused content sections, interactive UI elements, and a clean visual system designed for fans to explore the artist's work.",
-      deliverables: ["Landing Page Development", "UI Design", "Responsive Web Design", "Web Graphics"],
-      techStack: ["React", "TypeScript", "Tailwind CSS", "Vite"]
+      client: "Sora Digital",
+      thumbnail: "/assets/sora-digital.webp",
+      bannerImage: "/assets/sora-digital.webp",
+      galleryImages: ["/assets/sora-digital.webp"],
+      summary: "A fictional digital services studio showcasing landing page design and bespoke wedding experiences, connected end-to-end to a working GoHighLevel CRM automation system.",
+      tags: ["Web App", "CRM Automation", "React", "GoHighLevel"],
+      metrics: [],
+      liveUrl: "#",
+      githubUrl: "#",
+      walkthroughUrl: "https://www.loom.com/share/dfa8a2fb685245c6ad0f65ce8d1d6c64",
+      challenge: "Design a digital services studio site that could showcase multiple client-style projects, landing pages, wedding invitation sites, and an e-commerce concept, while connecting inquiries directly into a working CRM system instead of manual follow-up.",
+      solution: "Built a responsive React site for Sora Digital, a fictional digital studio specializing in landing pages and bespoke wedding services. The site features two showcased sub-projects, a wedding invitation site with intro animation, venue details, and the couple's story, and a ring e-commerce concept, alongside a custom inquiry form wired to GoHighLevel. Leads flow into a four-stage pipeline (New Inquiry → Consultation → Proposal/Deposit → Completed) with automated confirmation emails, follow-ups, and tagging.",
+      deliverables: ["Website Design & Development", "Custom Form Integration", "CRM Setup (GoHighLevel)", "Workflow & Automation Design", "Pipeline Configuration"],
+      techStack: ["React", "TypeScript", "Tailwind CSS", "Vite", "GoHighLevel"]
     },
-    {
+{
       id: "my-best-anime",
       title: "My Best Anime",
       subtitle: "Personal - Editorial Anime Archive",
@@ -146,6 +145,32 @@ export const portfolioData: PortfolioData = {
       techStack: ["React", "TypeScript", "Tailwind CSS", "Vite", "IndexedDB"]
     },
     {
+      id: "annchan-anisong",
+      title: "Annchan Anisong JP",
+      subtitle: "Japanese Artist Digital Space",
+      category: "Creative",
+      featured: true,
+      year: "2026",
+      client: "Personal Project",
+      thumbnail: "/assets/project-1.webp",
+      bannerImage: "/assets/project-1.webp",
+      galleryImages: [
+        "/assets/project-1.webp"
+      ],
+      summary: "A vibrant landing page and music discovery portal celebrating Japanese anime theme songs and anisong culture.",
+      tags: ["Landing Page", "UI Design", "Web Design", "React"],
+      metrics: [
+        { label: "Performance", value: "98/100" }
+      ],
+      liveUrl: "https://annchan-anisong-jp.vercel.app/",
+      caseStudyUrl: "https://annchan-anisong-jp.vercel.app/",
+      githubUrl: "https://github.com/Kimm-chii/annchan-anisong-jp",
+      challenge: "Create a digital space for an anisong artist that feels immersive and visually rooted in Japanese music culture, while staying easy for fans to navigate.",
+      solution: "Designed and built a responsive landing page with a dedicated hero, music-focused content sections, and interactive UI elements, giving fans a clean, focused space to explore the artist's work.",
+      deliverables: ["Landing Page Development", "UI Design", "Responsive Web Design", "Web Graphics"],
+      techStack: ["React", "TypeScript", "Tailwind CSS", "Vite"]
+    },
+    {
       id: "sora-digital-space",
       title: "Performing Arts",
       subtitle: "Minimal - Performing Arts",
@@ -155,7 +180,7 @@ export const portfolioData: PortfolioData = {
       client: "Personal Project",
       thumbnail: "/assets/performing-arts.webp",
       bannerImage: "/assets/performing-arts.webp",
-      galleryImages: "/assets/performing-arts.webp",
+      galleryImages: ["/assets/performing-arts.webp"],
       summary: "A modern web platform exploring thoughtful interface design, fluid motion, and intentional negative space.",
       tags: ["UI Design", "Web Design", "Responsive Design", "TypeScript", "Tailwind CSS"],
       metrics: [
@@ -194,7 +219,7 @@ export const portfolioData: PortfolioData = {
       techStack: ["React", "TypeScript", "Tailwind CSS", "Vite"]
     },
     {
-      id: "restaurant-concept",
+      id: "restaurant-concept-modern",
       title: "Restaurant Concept",
       subtitle: "Modern - Japanese Dining",
       category: "Restaurant",
@@ -283,29 +308,6 @@ export const portfolioData: PortfolioData = {
       deliverables: ["Landing Page Development", "UI Design", "Responsive Design", "Custom Web Graphics"],
       techStack: ["React", "TypeScript", "Tailwind CSS", "Vite"]
     }
-    /*{
-      id: "project-pulse",
-      title: "Project Pulse",
-      subtitle: "Real-time Audio Visualizer & Frontend Lab",
-      category: "Web Application",
-      featured: false,
-      year: "2026",
-      client: "Personal Project",
-      thumbnail: projectPulseImg,
-      bannerImage: projectPulseImg,
-      galleryImages: [projectPulseImg],
-      summary: "A sleek frontend dashboard concept designed for audio visualization, wave monitoring, and interactive sound design controls.",
-      tags: ["Web Application", "Audio Viz", "React", "TypeScript"],
-      metrics: [
-        { label: "Usability", value: "100%" }
-      ],
-      liveUrl: "https://github.com/Kimm-chii",
-      githubUrl: "https://github.com/Kimm-chii/pulse-audio-lab",
-      challenge: "Build a responsive audio dashboard interface that renders clean charts and sound wave meters with fluid animations.",
-      solution: "Implemented an optimized dashboard UI with smooth Web Audio APIs, custom sound controls, and modular widget cards.",
-      deliverables: ["Dashboard UI", "Frontend Development", "Component Architecture"],
-      techStack: ["React", "TypeScript", "Tailwind CSS", "Motion"]
-    }*/
   ],
   experiences: [
     {
@@ -330,6 +332,8 @@ export const portfolioData: PortfolioData = {
         { name: "Frontend Development", level: 100, description: "React, Vite, TypeScript, and Tailwind CSS with a focus on responsive web experiences." },
         { name: "Web & UI Design", level: 100, description: "Interface systems, visual layouts, wireframing, and responsive design principles." },
         { name: "Landing Pages", level: 100, description: "Hero sections, content structure, visual storytelling, and user-focused layouts." },
+        { name: "CRM & Automation", level: 100, description: "GoHighLevel, workflow automation, lead capture, pipeline management, conditional logic." },
+        { name: "Data Quality & QA", level: 100, description: "Data validation, issue identification, structured documentation, quality-focused problem solving." },
         { name: "Deployment & Tools", level: 100, description: "Vercel, Netlify, Cloudflare, and Git-based workflows." }
       ]
     }

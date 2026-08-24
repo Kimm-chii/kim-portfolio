@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Sliders, Play, Pause, Wand2, ChevronDown, Lightbulb } from 'lucide-react';
 
@@ -52,15 +52,15 @@ const CustomDropdown = ({ label, options, value, onChange }: { label: string, op
 
   return (
     <div className="relative" ref={ref}>
-      <div className="flex justify-between text-[10px] font-mono uppercase tracking-widest mb-2">
+      <div className="flex justify-between text-[9px] sm:text-[10px] font-mono uppercase tracking-widest mb-1 sm:mb-2 text-[#1a1a1a] dark:text-[#faf7f5]">
         <span className="opacity-60">{label}</span>
       </div>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full flex items-center justify-between px-3 py-2.5 text-[11px] font-mono uppercase tracking-wider bg-white/5 border border-white/10 rounded-lg hover:bg-white/10 transition-colors"
+        className="w-full flex items-center justify-between px-2.5 py-2 sm:px-3 sm:py-2.5 text-[10px] sm:text-[11px] font-mono uppercase tracking-wider bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-lg hover:bg-black/10 dark:hover:bg-white/10 transition-colors text-[#1a1a1a] dark:text-[#faf7f5]"
       >
         <span>{value}</span>
-        <ChevronDown className="w-3.5 h-3.5 opacity-50" />
+        <ChevronDown className="w-3 h-3 sm:w-3.5 sm:h-3.5 opacity-50" />
       </button>
       
       <AnimatePresence>
@@ -70,7 +70,7 @@ const CustomDropdown = ({ label, options, value, onChange }: { label: string, op
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -5 }}
             transition={{ duration: 0.15 }}
-            className="absolute z-10 w-full mt-1 bg-[#111] border border-white/10 rounded-lg shadow-xl overflow-hidden"
+            className="absolute z-20 w-full mt-1 bg-[#f5efe8] dark:bg-[#1a1a1a] border border-black/20 dark:border-white/20 overflow-hidden shadow-lg rounded-lg"
           >
             {options.map(opt => (
               <button
@@ -79,7 +79,7 @@ const CustomDropdown = ({ label, options, value, onChange }: { label: string, op
                   onChange(opt);
                   setIsOpen(false);
                 }}
-                className={`w-full text-left px-3 py-2.5 text-[11px] font-mono uppercase tracking-wider hover:bg-white/10 transition-colors ${value === opt ? 'text-emerald-400 bg-white/5' : 'text-white'}`}
+                className={`w-full text-left px-2.5 py-2 sm:px-3 sm:py-2.5 text-[10px] sm:text-[11px] font-mono uppercase tracking-wider hover:bg-black/10 dark:hover:bg-white/10 transition-colors ${value === opt ? 'text-[#f99db5] bg-black/5 dark:bg-white/5 font-semibold' : 'text-[#1a1a1a] dark:text-[#faf7f5]'}`}
               >
                 {opt}
               </button>
@@ -203,7 +203,8 @@ export const PlaygroundSection: React.FC = () => {
          time += 0.005 * speedRef.current;
       }
       
-      ctx.fillStyle = 'rgba(10, 10, 10, 0.25)';
+      const isDark = document.documentElement.classList.contains('dark');
+      ctx.fillStyle = isDark ? 'rgba(26, 26, 26, 0.25)' : 'rgba(245, 239, 232, 0.25)';
       ctx.fillRect(0, 0, w, h);
       
       const currentTheme = THEMES[themeRef.current];
@@ -328,63 +329,63 @@ export const PlaygroundSection: React.FC = () => {
   }, []);
 
   return (
-    <section id="playground" className="py-24 relative border-t border-white/10 dark:border-white/10 light:border-black/10">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+    <section id="playground" className="scroll-mt-16 lg:scroll-mt-24 py-6 sm:py-12 lg:py-10 xl:min-h-screen xl:flex xl:flex-col xl:justify-center relative border-t border-black/10 dark:border-white/10">
+      <div className="max-w-[1400px] mx-auto px-3.5 sm:px-6 lg:px-12 w-full space-y-3.5 sm:space-y-6">
         
         {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-1.5 sm:gap-4 text-[#1a1a1a] dark:text-[#faf7f5]">
           <div>
-            <span className="text-[10px] uppercase tracking-[0.3em] opacity-40 mb-3 block font-mono">
-              03 / LAB
+            <span className="text-[9px] sm:text-[11px] font-mono tracking-[0.2em] uppercase opacity-70 text-[#f99db5] mb-0.5 sm:mb-1 block">
+              03 // Interactive Playground
             </span>
-            <h2 className="text-3xl sm:text-5xl font-sans font-semibold tracking-tight">
-              Canvas Playground
+            <h2 className="text-lg sm:text-2xl md:text-3xl lg:text-4xl font-sans font-semibold tracking-tight text-[#1a1a1a] dark:text-[#faf7f5]">
+              Generative Motion Canvas
             </h2>
           </div>
-          <p className="text-xs sm:text-sm opacity-60 max-w-md leading-relaxed font-sans">
+          <p className="text-[11px] sm:text-xs md:text-sm opacity-70 max-w-md leading-relaxed font-sans md:text-right">
             Explore a lightweight real-time canvas experiment that blends motion, interaction, and generative visuals.
           </p>
         </div>
 
         {/* Canvas & Controls */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-3 sm:gap-4 lg:gap-5 items-stretch">
           {/* Canvas Viewport */}
-          <div className="lg:col-span-8 relative rounded-2xl border border-white/10 bg-[#0A0A0A] aspect-video flex items-center justify-center overflow-hidden shadow-xl">
-            <canvas ref={canvasRef} className="w-full h-full block cursor-crosshair" />
+          <div className="lg:col-span-8 relative border border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5 aspect-[16/10] sm:aspect-video max-h-[220px] sm:max-h-[360px] xl:max-h-[400px] w-full flex items-center justify-center overflow-hidden rounded-lg">
+            <canvas ref={canvasRef} className="w-full h-full block cursor-crosshair touch-none" />
 
-            <div className="absolute top-5 left-5 flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/10 bg-black/80 text-[9px] font-mono uppercase tracking-widest text-white backdrop-blur-md">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+            <div className="absolute top-2.5 left-2.5 sm:top-4 sm:left-4 flex items-center gap-1.5 px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full border border-black/20 dark:border-white/20 bg-[#f5efe8]/90 dark:bg-[#1a1a1a]/90 text-[8px] sm:text-[9px] font-mono uppercase tracking-widest text-[#1a1a1a] dark:text-[#faf7f5] backdrop-blur-md">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#f99db5] animate-pulse"></span>
               <span>Generative Experiment</span>
             </div>
 
             <button
               onClick={() => setIsPlaying(!isPlaying)}
-              className="absolute bottom-5 right-5 p-3 rounded-full bg-white/10 text-white hover:bg-white hover:text-black border border-white/20 transition-all cursor-pointer backdrop-blur-md shadow-lg"
+              className="absolute bottom-2.5 right-2.5 sm:bottom-4 sm:right-4 p-2 sm:p-2.5 rounded-full bg-black/10 dark:bg-white/10 text-[#1a1a1a] dark:text-[#faf7f5] hover:bg-[#1a1a1a] hover:text-[#faf7f5] dark:hover:bg-white dark:hover:text-[#1a1a1a] border border-black/20 dark:border-white/20 transition-all cursor-pointer backdrop-blur-md active:scale-95"
               title={isPlaying ? "Pause Canvas" : "Play Canvas"}
             >
-              {isPlaying ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4 ml-0.5" />}
+              {isPlaying ? <Pause className="w-3 h-3 sm:w-3.5 sm:h-3.5" /> : <Play className="w-3 h-3 sm:w-3.5 sm:h-3.5 ml-0.5" />}
             </button>
           </div>
 
           {/* Controls Panel */}
-          <div className="lg:col-span-4 p-6 rounded-2xl border border-white/10 dark:border-white/10 bg-[#0D0D0D] dark:bg-[#0D0D0D] flex flex-col gap-8 shadow-lg h-full">
-            <div className="flex items-center justify-between border-b border-white/10 pb-4">
-              <h3 className="text-[10px] font-mono uppercase tracking-[0.3em] opacity-60 flex items-center gap-2">
-                <Sliders className="w-3.5 h-3.5 opacity-60" />
+          <div className="lg:col-span-4 p-3.5 sm:p-5 border border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5 flex flex-col justify-between gap-3 sm:gap-4 h-full text-[#1a1a1a] dark:text-[#faf7f5] rounded-lg">
+            <div className="flex items-center justify-between border-b border-black/10 dark:border-white/10 pb-2 sm:pb-3">
+              <h3 className="text-[9px] font-mono uppercase tracking-[0.3em] opacity-60 flex items-center gap-1.5">
+                <Sliders className="w-3 h-3 sm:w-3.5 sm:h-3.5 opacity-60" />
                 Parameters
               </h3>
               <button 
                 onClick={handleRandomize}
-                className="flex items-center gap-1.5 text-[10px] font-mono uppercase tracking-widest opacity-60 hover:opacity-100 hover:text-emerald-400 transition-colors"
+                className="flex items-center gap-1 text-[9px] sm:text-[10px] font-mono uppercase tracking-widest opacity-60 hover:opacity-100 hover:text-[#f99db5] transition-colors cursor-pointer active:scale-95"
               >
-                <Wand2 className="w-3 h-3" />
+                <Wand2 className="w-2.5 h-2.5 sm:w-3 sm:h-3" />
                 Randomize
               </button>
             </div>
 
             {/* Speed Slider */}
-            <div className="space-y-3">
-              <div className="flex justify-between text-[10px] font-mono uppercase tracking-widest">
+            <div className="space-y-1.5">
+              <div className="flex justify-between text-[9px] sm:text-[10px] font-mono uppercase tracking-widest">
                 <span className="opacity-60">Flow Speed</span>
                 <span className="opacity-100 font-medium">{speed.toFixed(1)}x</span>
               </div>
@@ -395,7 +396,7 @@ export const PlaygroundSection: React.FC = () => {
                 step="0.1"
                 value={speed}
                 onChange={(e) => setSpeed(parseFloat(e.target.value))}
-                className="w-full accent-white bg-white/10 cursor-pointer h-1.5 rounded-full outline-none appearance-none [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:bg-white [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:cursor-pointer"
+                className="w-full accent-[#1a1a1a] dark:accent-[#faf7f5] bg-black/20 dark:bg-white/20 cursor-pointer h-1.5 rounded-full outline-none appearance-none [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:bg-[#1a1a1a] dark:[&::-webkit-slider-thumb]:bg-[#faf7f5] [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:cursor-pointer"
               />
             </div>
 
@@ -418,28 +419,28 @@ export const PlaygroundSection: React.FC = () => {
         </div>
 
         {/* Ideas & Applications Box */}
-        <div className="p-8 rounded-2xl border border-white/10 bg-[#0D0D0D] dark:bg-[#0D0D0D]">
-          <div className="flex items-center gap-2.5 mb-6">
-            <Lightbulb className="w-5 h-5 text-emerald-400 opacity-80" />
-            <h4 className="text-sm font-sans font-medium tracking-wide">Ideas & Applications</h4>
+        <div className="p-3.5 sm:p-5 border border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5 text-[#1a1a1a] dark:text-[#faf7f5] rounded-lg">
+          <div className="flex items-center gap-2 mb-2 sm:mb-3">
+            <Lightbulb className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#f99db5] opacity-80" />
+            <h4 className="text-xs sm:text-sm font-sans font-medium tracking-wide">Ideas & Applications</h4>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="space-y-2">
-              <h5 className="text-[11px] font-medium font-mono uppercase tracking-widest text-white/90">Hero Backgrounds</h5>
-              <p className="text-sm text-white/50 leading-relaxed">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-2.5 sm:gap-4">
+            <div className="space-y-0.5 sm:space-y-1">
+              <h5 className="text-[9px] sm:text-[11px] font-medium font-mono uppercase tracking-widest text-[#1a1a1a] dark:text-[#faf7f5]">Hero Backgrounds</h5>
+              <p className="text-[11px] sm:text-xs text-[#1a1a1a]/70 dark:text-[#faf7f5]/70 leading-relaxed">
                 Create subtle animated backgrounds for modern landing pages that respond to user interaction.
               </p>
             </div>
-            <div className="space-y-2">
-              <h5 className="text-[11px] font-medium font-mono uppercase tracking-widest text-white/90">Interactive Experiences</h5>
-              <p className="text-sm text-white/50 leading-relaxed">
+            <div className="space-y-0.5 sm:space-y-1">
+              <h5 className="text-[9px] sm:text-[11px] font-medium font-mono uppercase tracking-widest text-[#1a1a1a] dark:text-[#faf7f5]">Interactive Experiences</h5>
+              <p className="text-[11px] sm:text-xs text-[#1a1a1a]/70 dark:text-[#faf7f5]/70 leading-relaxed">
                 Enhance user interaction with responsive visual effects that follow cursor movements and clicks.
               </p>
             </div>
-            <div className="space-y-2">
-              <h5 className="text-[11px] font-medium font-mono uppercase tracking-widest text-white/90">Creative Interfaces</h5>
-              <p className="text-sm text-white/50 leading-relaxed">
+            <div className="space-y-0.5 sm:space-y-1">
+              <h5 className="text-[9px] sm:text-[11px] font-medium font-mono uppercase tracking-widest text-[#1a1a1a] dark:text-[#faf7f5]">Creative Interfaces</h5>
+              <p className="text-[11px] sm:text-xs text-[#1a1a1a]/70 dark:text-[#faf7f5]/70 leading-relaxed">
                 Experiment with lightweight generative visuals for portfolios, microsites, and digital experiences.
               </p>
             </div>

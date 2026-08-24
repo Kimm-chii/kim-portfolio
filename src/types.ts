@@ -16,10 +16,12 @@ export interface Project {
   metrics: { label: string; value: string }[];
   liveUrl?: string;
   githubUrl?: string;
+  walkthroughUrl?: string;
   challenge: string;
   solution: string;
   deliverables: string[];
   techStack?: string[];
+  caseStudyUrl?: string;
 }
 
 export interface Experience {

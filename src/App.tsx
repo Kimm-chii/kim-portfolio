@@ -5,7 +5,7 @@ import { ToastMessage } from './components/Toast';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { IntroSplash } from './components/IntroSplash';
-import { ProjectGrid } from './components/ProjectGrid';
+import { ProjectList } from './components/ProjectList';
 import { ProjectsPage } from './components/ProjectsPage';
 import { ProjectModal } from './components/ProjectModal';
 import { AboutSection } from './components/AboutSection';
@@ -14,17 +14,13 @@ import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
 import { ToastContainer } from './components/Toast';
 
+import { ScrollSpacer } from './components/ScrollSpacer';
+import { PixelAmbientBackground } from './components/PixelAmbientBackground';
+
 export default function App() {
   const [toasts, setToasts] = useState<ToastMessage[]>([]);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [currentPage, setCurrentPage] = useState<'home' | 'projects'>('home');
-
-  // Lock dark mode permanently
-  useEffect(() => {
-    const root = document.documentElement;
-    root.classList.add('dark');
-    root.classList.remove('light');
-  }, []);
 
   // Listen to hash changes for direct routing (#all-projects)
   useEffect(() => {
@@ -75,14 +71,12 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen font-sans relative bg-[#0A0A0A] text-[#F2F2F2] selection:bg-white selection:text-black">
+    <div className="min-h-screen font-sans relative bg-[#f5efe8] text-[#1a1a1a] dark:bg-[#1a1a1a] dark:text-[#faf7f5] selection:bg-[#1a1a1a] selection:text-[#faf7f5] dark:selection:bg-[#faf7f5] dark:selection:text-[#1a1a1a] transition-colors duration-300">
+      {/* Crispy Grain Texture Overlay */}
+      <div className="grain-overlay" />
+
       <IntroSplash />
-      {/* Background Grid Lines */}
-      <div className="fixed inset-0 pointer-events-none z-0 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between">
-        <div className="w-[1px] h-full bg-white/5" />
-        <div className="w-[1px] h-full hidden md:block bg-white/5" />
-        <div className="w-[1px] h-full bg-white/5" />
-      </div>
+      <PixelAmbientBackground />
 
       {/* Floating Glassmorphic Navigation */}
       <Navbar
@@ -97,21 +91,24 @@ export default function App() {
         {currentPage === 'home' ? (
           <>
             {/* 1. Hero */}
-            <Hero data={portfolioData} />
+            <Hero data={portfolioData} onShowToast={showToast} />
 
             {/* 2. Projects (Featured Preview) */}
-            <ProjectGrid
+            <ProjectList
               projects={portfolioData.projects}
               onSelectProject={(p) => setSelectedProject(p)}
               onViewAllProjects={handleViewAllProjects}
               limit={3}
             />
+            <ScrollSpacer />
 
             {/* 3. About */}
             <AboutSection data={portfolioData} />
+            <ScrollSpacer />
 
             {/* 4. Interactive Canvas Generator Lab */}
             <PlaygroundSection />
+            <ScrollSpacer />
 
             {/* 5. Contact */}
             <ContactSection
