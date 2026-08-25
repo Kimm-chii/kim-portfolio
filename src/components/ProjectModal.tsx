@@ -70,14 +70,41 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose, on
 
           <div className="p-6 sm:p-8 space-y-8">
             {/* Banner Image */}
-            <div className="border border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5 aspect-video relative group">
-              <img
-                src={project.bannerImage || project.thumbnail}
-                alt={project.title}
-                referrerPolicy="no-referrer"
-                className="w-full h-full object-cover"
-              />
-            </div>
+            {project.liveUrl && project.liveUrl !== '#' ? (
+              <a
+                href={project.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => {
+                  sounds.playClick();
+                  onShowToast('Opening live project link', project.liveUrl);
+                }}
+                className="border border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5 aspect-video relative group cursor-pointer block overflow-hidden"
+                title={`Visit Live Project - ${project.title}`}
+              >
+                <img
+                  src={project.bannerImage || project.thumbnail}
+                  alt={project.title}
+                  referrerPolicy="no-referrer"
+                  className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-[2px]">
+                  <span className="px-4 py-2 bg-[#faf7f5] text-[#1a1a1a] text-[10px] font-mono uppercase tracking-[0.2em] font-semibold border border-black/10 flex items-center gap-2 shadow-lg">
+                    <span>View Live Project</span>
+                    <ExternalLink className="w-3.5 h-3.5" />
+                  </span>
+                </div>
+              </a>
+            ) : (
+              <div className="border border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5 aspect-video relative group">
+                <img
+                  src={project.bannerImage || project.thumbnail}
+                  alt={project.title}
+                  referrerPolicy="no-referrer"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            )}
 
             {/* Quick Meta Strip */}
             <div className="grid grid-cols-2 gap-4 p-4 border border-black/10 dark:border-white/10 text-xs">

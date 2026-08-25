@@ -8,7 +8,7 @@ interface ProjectAccordionListProps {
   onSelectProject?: (p: Project) => void;
 }
 
-export const ProjectAccordionList: React.FC<ProjectAccordionListProps> = ({ projects }) => {
+export const ProjectAccordionList: React.FC<ProjectAccordionListProps> = ({ projects, onSelectProject }) => {
   const [expandedId, setExpandedId] = useState<string | null>(null);
 
   const smoothScrollToElement = (elementId: string) => {
@@ -111,40 +111,77 @@ export const ProjectAccordionList: React.FC<ProjectAccordionListProps> = ({ proj
                       
                       {/* Left Column: Images & Links */}
                       <div className="lg:col-span-5 flex flex-col gap-6">
-                        <div 
-                          className="aspect-[4/3] w-full overflow-hidden bg-black/5 dark:bg-white/5 relative shrink-0 border border-black/10 dark:border-white/10 group/image cursor-pointer block"
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            if (project.liveUrl && project.liveUrl !== '#') {
-                              window.open(project.liveUrl, '_blank', 'noopener,noreferrer');
-                            }
-                          }}
-                        >
-                          <img 
-                            src={project.thumbnail} 
-                            alt={project.title}
-                            className="w-full h-full object-cover filter contrast-[1.02] group-hover/image:scale-[1.03] transition-transform duration-700 ease-out"
-                            referrerPolicy="no-referrer"
-                          />
-                          
-                          {/* Accordion Wipe Hover Effect Layer */}
-                          <div className="absolute inset-0 z-10 flex pointer-events-none">
-                            {Array.from({ length: 5 }).map((_, i) => (
-                              <div
-                                key={i}
-                                className="h-full flex-1 bg-[#f99db5] origin-left scale-x-0 group-hover/image:scale-x-100 transition-transform duration-300 ease-out opacity-95"
-                                style={{ transitionDelay: `${i * 40}ms` }}
-                              />
-                            ))}
+                        {project.liveUrl && project.liveUrl !== '#' ? (
+                          <a 
+                            href={project.liveUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={(e) => e.stopPropagation()}
+                            className="aspect-[4/3] w-full overflow-hidden bg-black/5 dark:bg-white/5 relative shrink-0 border border-black/10 dark:border-white/10 group/image cursor-pointer block"
+                            title={`View Live Project - ${project.title}`}
+                          >
+                            <img 
+                              src={project.thumbnail} 
+                              alt={project.title}
+                              className="w-full h-full object-cover filter contrast-[1.02] group-hover/image:scale-[1.03] transition-transform duration-700 ease-out"
+                              referrerPolicy="no-referrer"
+                            />
+                            
+                            {/* Accordion Wipe Hover Effect Layer */}
+                            <div className="absolute inset-0 z-10 flex pointer-events-none">
+                              {Array.from({ length: 5 }).map((_, i) => (
+                                <div
+                                  key={i}
+                                  className="h-full flex-1 bg-[#f99db5] origin-left scale-x-0 group-hover/image:scale-x-100 transition-transform duration-300 ease-out opacity-95"
+                                  style={{ transitionDelay: `${i * 40}ms` }}
+                                />
+                              ))}
+                            </div>
+                            
+                            {/* View Project Text */}
+                            <div className="absolute inset-0 z-20 flex items-center justify-center opacity-0 group-hover/image:opacity-100 transition-opacity duration-300 delay-100 pointer-events-none">
+                              <span className="text-[#1a1a1a] font-mono uppercase tracking-[0.2em] text-[10px] font-semibold px-4 py-2 bg-[#faf7f5]/80 backdrop-blur-sm border border-black/10 flex items-center gap-1.5">
+                                <span>View Live Project</span>
+                                <ArrowUpRight className="w-3.5 h-3.5" />
+                              </span>
+                            </div>
+                          </a>
+                        ) : (
+                          <div 
+                            className="aspect-[4/3] w-full overflow-hidden bg-black/5 dark:bg-white/5 relative shrink-0 border border-black/10 dark:border-white/10 group/image cursor-pointer block"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              if (onSelectProject) {
+                                onSelectProject(project);
+                              }
+                            }}
+                          >
+                            <img 
+                              src={project.thumbnail} 
+                              alt={project.title}
+                              className="w-full h-full object-cover filter contrast-[1.02] group-hover/image:scale-[1.03] transition-transform duration-700 ease-out"
+                              referrerPolicy="no-referrer"
+                            />
+                            
+                            {/* Accordion Wipe Hover Effect Layer */}
+                            <div className="absolute inset-0 z-10 flex pointer-events-none">
+                              {Array.from({ length: 5 }).map((_, i) => (
+                                <div
+                                  key={i}
+                                  className="h-full flex-1 bg-[#f99db5] origin-left scale-x-0 group-hover/image:scale-x-100 transition-transform duration-300 ease-out opacity-95"
+                                  style={{ transitionDelay: `${i * 40}ms` }}
+                                />
+                              ))}
+                            </div>
+                            
+                            {/* View Project Text */}
+                            <div className="absolute inset-0 z-20 flex items-center justify-center opacity-0 group-hover/image:opacity-100 transition-opacity duration-300 delay-100 pointer-events-none">
+                              <span className="text-[#1a1a1a] font-mono uppercase tracking-[0.2em] text-[10px] font-semibold px-4 py-2 bg-[#faf7f5]/80 backdrop-blur-sm border border-black/10">
+                                View Details
+                              </span>
+                            </div>
                           </div>
-                          
-                          {/* View Project Text */}
-                          <div className="absolute inset-0 z-20 flex items-center justify-center opacity-0 group-hover/image:opacity-100 transition-opacity duration-300 delay-100 pointer-events-none">
-                            <span className="text-[#1a1a1a] font-mono uppercase tracking-[0.2em] text-[10px] font-semibold px-4 py-2 bg-[#faf7f5]/80 backdrop-blur-sm border border-black/10">
-                              View Live Project
-                            </span>
-                          </div>
-                        </div>
+                        )}
 
                         {/* Project Links */}
                         <div className="flex flex-col gap-3">
