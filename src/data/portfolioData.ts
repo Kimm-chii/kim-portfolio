@@ -72,6 +72,47 @@ export const portfolioData: PortfolioData = {
       deliverables: ["Website Design & Development", "Custom Form Integration", "CRM Setup (GoHighLevel)", "Workflow & Automation Design", "Pipeline Configuration"],
       techStack: ["React", "TypeScript", "Tailwind CSS", "Vite", "GoHighLevel"]
     },
+    {
+      id: "annchan-anisong",
+      title: "Annchan Anisong JP",
+      subtitle: "Japanese Artist Digital Space",
+      category: "Creative",
+      featured: true,
+      year: "2026",
+      client: "Personal Project",
+      thumbnail: "/assets/project-1.webp",
+      bannerImage: "/assets/project-1.webp",
+      galleryImages: [
+        "/assets/project-1.webp"
+      ],
+      summary: "A polished digital space for a Japanese anisong artist, featuring an automatically updated music section powered by the YouTube API and a serverless fan-message workflow connected to n8n and Discord.",
+      tags: ["Web Design", "UI Design", "React", "YouTube API", "Cloudflare Workers", "n8n", "Discord"],
+      metrics: [
+        { label: "Performance", value: "98/100" }
+      ],
+      liveUrl: "https://annchan-anisong-jp.pages.dev//",
+      caseStudyUrl: "https://annchan-anisong-jp.pages.dev//",
+      githubUrl: "https://github.com/Kimm-chii/annchan-anisong-jp",
+      challenge: "Build a personal artist website with dynamic content and a secure fan message system.",
+      solution: "Built a responsive artist site with YouTube API integration through Cloudflare Workers, plus a fan message workflow powered by n8n and Discord.",
+      deliverables: [
+        "Web Design",
+        "UI Design",
+        "YouTube API Integration",
+        "Cloudflare Workers",
+        "n8n Automation",
+        "Discord Integration"
+      ],
+      techStack: [
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "Vite",
+        "YouTube API",
+        "Cloudflare Workers",
+        "n8n"
+      ]
+    },
 {
       id: "my-best-anime",
       title: "My Best Anime",
@@ -143,32 +184,6 @@ export const portfolioData: PortfolioData = {
         "Frontend Development"
       ],
       techStack: ["React", "TypeScript", "Tailwind CSS", "Vite", "IndexedDB"]
-    },
-    {
-      id: "annchan-anisong",
-      title: "Annchan Anisong JP",
-      subtitle: "Japanese Artist Digital Space",
-      category: "Creative",
-      featured: true,
-      year: "2026",
-      client: "Personal Project",
-      thumbnail: "/assets/project-1.webp",
-      bannerImage: "/assets/project-1.webp",
-      galleryImages: [
-        "/assets/project-1.webp"
-      ],
-      summary: "A vibrant landing page and music discovery portal celebrating Japanese anime theme songs and anisong culture.",
-      tags: ["Landing Page", "UI Design", "Web Design", "React"],
-      metrics: [
-        { label: "Performance", value: "98/100" }
-      ],
-      liveUrl: "https://annchan-anisong-jp.vercel.app/",
-      caseStudyUrl: "https://annchan-anisong-jp.vercel.app/",
-      githubUrl: "https://github.com/Kimm-chii/annchan-anisong-jp",
-      challenge: "Create a digital space for an anisong artist that feels immersive and visually rooted in Japanese music culture, while staying easy for fans to navigate.",
-      solution: "Designed and built a responsive landing page with a dedicated hero, music-focused content sections, and interactive UI elements, giving fans a clean, focused space to explore the artist's work.",
-      deliverables: ["Landing Page Development", "UI Design", "Responsive Web Design", "Web Graphics"],
-      techStack: ["React", "TypeScript", "Tailwind CSS", "Vite"]
     },
     {
       id: "sora-digital-space",
